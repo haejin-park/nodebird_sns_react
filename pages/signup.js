@@ -8,7 +8,7 @@ const Signup = () => {
                 <title>회원가입 | NodeBird</title>
             </Head>
             <AppLayout>
-                <div>회원가입 페이지</div>
+                회원가입 페이지
             </AppLayout>
         </>
     )

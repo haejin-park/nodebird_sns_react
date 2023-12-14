@@ -8,10 +8,9 @@ const Profile = () => {
                 <title>내 프로필 | NodeBird</title>
             </Head>
             <AppLayout>
-                <div>내 프로필</div>
+                내 프로필
             </AppLayout>    
         </>
-
     )
 };
 
