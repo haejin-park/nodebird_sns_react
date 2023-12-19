@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Menu, Input, Row, Col } from 'antd';
@@ -6,13 +6,13 @@ import styled from 'styled-components';
 
 import UserProfile from "../components/UserProfile";
 import LoginForm from "../components/LoginForm"
-
+import {useSelector} from 'react-redux';
 const SearchInput = styled(Input.Search)`
     vertical-align:middle;
 `;
 
 const AppLayout = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
     return(
         <div>
             <Menu mode="horizontal">
@@ -31,11 +31,9 @@ const AppLayout = ({ children }) => {
             </Menu>    
             <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    {isLoggedIn? <UserProfile setIsLoggedIn={setIsLoggedIn}/> : <LoginForm setIsLoggedIn={setIsLoggedIn}/>}
+                    {isLoggedIn? <UserProfile/> : <LoginForm/>}
                 </Col>
-                <Col xs={24} md={6}>
-                    {children}
-                </Col>
+                   {children}
                 <Col xs={24} md={6}>
                     <a href="https://www.notion.so/3657aede348a4aa49de998ab73392cc2?pvs=4" target="_blank" rel="noreferer noopener">Made by Haejin</a>
                 </Col>
