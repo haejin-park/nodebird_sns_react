@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
 import {Card, Avatar, Button} from 'antd';
 import styled from 'styled-components';
-import {logoutAction} from '../reducers';
+import {logoutAction} from '../reducers/user';
 const ButtonWrapper = styled(Button)`
     display: block;
     margin-left: auto;
