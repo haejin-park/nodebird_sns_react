@@ -33,7 +33,9 @@ const AppLayout = ({ children }) => {
                 <Col xs={24} md={6}>
                     {isLoggedIn? <UserProfile/> : <LoginForm/>}
                 </Col>
-                   {children}
+                <Col>
+                    {children}
+                </Col>
                 <Col xs={24} md={6}>
                     <a href="https://www.notion.so/3657aede348a4aa49de998ab73392cc2?pvs=4" target="_blank" rel="noreferer noopener">Made by Haejin</a>
                 </Col>

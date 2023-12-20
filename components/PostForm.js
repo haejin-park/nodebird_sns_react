@@ -23,8 +23,9 @@ const PostForm = () => {
             <Input.TextArea 
                 value={text} 
                 onChange={onChangeText} 
-                maxLength={140} 
+                maxLength={240} 
                 placeholder="어떤 신기한 일이 있었나요?"
+                style={{ width: '100%' }} 
             />
             <div>
                 <input type="file" multiple hidden ref={imageInput}/>
