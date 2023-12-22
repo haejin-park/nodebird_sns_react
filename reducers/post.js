@@ -7,11 +7,11 @@ export const initalState = {
         },
         content: '첫 번째 게시글 #해시태그 #행복한집사생활',
         Images:[{
-            src: 'https://loremflickr.com/640/360'
+            src: 'https://cdn.pixabay.com/photo/2017/08/08/17/54/dog-2612081_1280.jpg'
         },{
-            src: 'https://placekitten.com/640/360'
+            src: 'https://cdn.pixabay.com/photo/2018/07/13/10/20/kittens-3535404_1280.jpg'
         },{ 
-            src: 'https://picsum.photos/640/360'
+            src: 'https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_1280.jpg'
         }],
         Comments: [{
             User: {
