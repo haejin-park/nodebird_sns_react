@@ -39,7 +39,7 @@ export const SlickWrapper = styled.div`
 `;
 
 
-export const ImageWrapper = styled.div`
+export const ImgWrapper = styled.div`
     padding:32px;
     text-align: center;
 
@@ -68,6 +68,9 @@ export const Indicator = styled.div`
 export const Global = createGlobalStyle`
     .slick-slide {
         display: inline-block;
+    }
+    .ant-card-cover {
+        transform: none !important;
     }
 `
 

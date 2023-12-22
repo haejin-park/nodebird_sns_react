@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Slick from 'react-slick';
-import {Overlay, Header, SlickWrapper, ImageWrapper, Indicator, Global, CloseBtn} from './style'
-
+import {Overlay, Header, SlickWrapper, ImgWrapper, Indicator, Global, CloseBtn} from './style'
 const ImagesZoom = ({images, onClose}) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     return (
@@ -24,9 +23,9 @@ const ImagesZoom = ({images, onClose}) => {
                             slidesToScroll={1}
                         >
                             {images.map((v => (
-                                <ImageWrapper key={v.src}>
+                                <ImgWrapper key={v.src}>
                                     <img src={v.src} alt={v.src}/>
-                                </ImageWrapper>
+                                </ImgWrapper>
                             )))}
                         </Slick>
                         <Indicator>
