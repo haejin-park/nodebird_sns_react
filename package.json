@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "antd": "^4.2.1",
+    "axios": "^1.6.2",
     "next": "^9.5.5",
     "next-redux-wrapper": "^6.0.2",
     "prop-types": "^15.8.1",
@@ -21,7 +22,8 @@
     "react-slick": "^0.29.0",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0",
+    "redux-saga": "^1.2.3",
+    "saga": "^4.0.0-alpha",
     "styled-components": "^6.1.1"
   },
   "devDependencies": {
