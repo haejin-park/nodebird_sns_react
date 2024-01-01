@@ -26,6 +26,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-saga": "^1.2.3",
     "saga": "^4.0.0-alpha",
+    "shortid": "^2.2.16",
     "styled-components": "^6.1.1"
   },
   "devDependencies": {

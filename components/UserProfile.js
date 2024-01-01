@@ -29,5 +29,6 @@ const UserProfile = () => {
             <ButtonWrapper onClick={onLogout} loading={logOutLoading}>로그아웃</ButtonWrapper>
         </Card>
     );
+    
 }
 export default UserProfile;

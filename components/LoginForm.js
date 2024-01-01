@@ -15,13 +15,14 @@ const FormWrapper = styled(Form)`
 
 const LoginForm = () => {
     const dispatch = useDispatch();
-    const {logInLoading} = useSelector((state) => state.user);
+    const {logInLoading, logInDone} = useSelector((state) => state.user);
     const [email, onChangeEmail] = useInput('');
     const [password, onChangePassword] = useInput('');
     const onSubmitForm = useCallback(() => {
         console.log(email,password);
         dispatch(loginRequestAction(email, password));
     },[email, password]);
+
     return (
         <FormWrapper onFinish={onSubmitForm}>
             <div>
