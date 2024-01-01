@@ -64,7 +64,7 @@ export const Indicator = styled.div`
         font-size: 15px;
 
     }
-`
+`;
 export const Global = createGlobalStyle`
     .slick-slide {
         display: inline-block;
@@ -72,7 +72,7 @@ export const Global = createGlobalStyle`
     .ant-card-cover {
         transform: none !important;
     }
-`
+`;
 
 export const CloseBtn = styled(CloseOutlined)`
     position:absolute;
@@ -81,4 +81,4 @@ export const CloseBtn = styled(CloseOutlined)`
     padding: 15px;
     line-height: 14px;
     cursor:pointer;
-`
+`;
