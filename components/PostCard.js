@@ -33,7 +33,7 @@ const PostCard = ({post}) => {
                     <RetweetOutlined key="retweet" />,
                     liked
                         ? <HeartTwoTone twoToneColor="#eb2f96" key="heart" onClick={onToggleLike}/> 
-                        : <HeartOutlined key="heart" onClick={onToggleLike}/>,                    ,
+                        : <HeartOutlined key="heart" onClick={onToggleLike}/>,                    
                     <MessageOutlined key="comment" onClick={onToggleComment}/>,
                     <Popover key="more" content={(
                         <Button.Group>
