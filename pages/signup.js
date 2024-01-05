@@ -1,4 +1,5 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
+import Router from 'next/router';
 import Head from "next/head";
 import {Form, Input, Checkbox, Button} from 'antd';
 import styled from 'styled-components';
@@ -11,7 +12,17 @@ const ErrorMessage = styled.div`
 `;
 const Signup = () => {
     const dispatch = useDispatch();
-    const {signUpLoading} = useSelector((state) => state.user);
+    const {signUpLoading, signUpDone, signUpError} = useSelector((state) => state.user);
+    useEffect(() => {
+        if(signUpDone) {
+            Router.push('/');
+        }
+    }, [signUpDone]);
+    useEffect(() => {
+        if(signUpError) {
+            alert(signUpError);
+        }
+    }, [signUpError]);
     const [email, onChangeEmail] = useInput('');
     const [nickname, onChangeNickname] = useInput('');
     const [password, onChangePassword] = useInput('');
@@ -35,10 +46,9 @@ const Signup = () => {
         if(!term){
             return setTermError(true);
         }
-        console.log(email,nickname,password);
         dispatch({
             type: SIGN_UP_REQUEST,
-            data: { email, password, nickname},
+            data: { email, nickname, password},
         });
 
     },[email, password, passwordCheck, term]);
@@ -62,7 +72,7 @@ const Signup = () => {
                     <div>
                         <label htmlFor="user-id">비밀번호</label>
                         <br />
-                        <Input name="user-password" value={password} required onChange={onChangePassword}/>
+                        <Input name="user-password" type="password" value={password} required onChange={onChangePassword}/>
                     </div>
                     <div>
                         <label htmlFor="user-password-check">비밀번호 체크</label>
