@@ -57,13 +57,12 @@ function* follow(action) {
         
 
 function loginAPI(data){
-    return axios.post('/api/login', data);
+    return axios.post('/user/login', data);
 }
 
 function* login(action) {
     try {
-        console.log('saga logIn');
-        // const result = yield call(loginAPI, action.data);
+        const result = yield call(loginAPI, action.data);
         yield delay(1000);
         yield put({
             type: LOG_IN_SUCCESS,
@@ -78,7 +77,7 @@ function* login(action) {
 }
 
 function logoutAPI(){
-    return axios.post('/api/logout');
+    return axios.post('/user/logout');
 }
 
 function* logout() {
@@ -97,7 +96,7 @@ function* logout() {
 }
 
 function signUpAPI(data) {
-    return axios.post('http://localhost:3065/user', data);
+    return axios.post('/user', data);
 }
 
 function* signUp(action) {
