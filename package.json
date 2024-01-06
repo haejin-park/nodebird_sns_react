@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 3060",
+    "dev": "npx browserslist@latest --update-db && NODE_OPTIONS=--openssl-legacy-provider next -p 3060",
     "build": "next build",
     "lint": "eslint ."
+    
   },
   "author": "luckyhaejin",
   "license": "ISC",

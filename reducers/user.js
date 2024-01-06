@@ -51,28 +51,12 @@ export const UNFOLLOW_FAILURE = 'UNFOLLOW_FAILURE';
 export const ADD_POST_TO_ME = 'ADD_POST_TO_ME';
 export const REMOVE_POST_OF_ME = 'REMOVE_POST_OF_ME';
 
-const dummyUser = (data) => ({
-    ...data,
-    nickname: '해디니',
-    id: 1,
-    Posts: [{id: 1}],
-    Followings: [{nickname: '귀요미1'}, {nickname: '귀요미2'}, {nickname: '귀요미3'}],
-    Followers: [{nickname: '겸댕이1'}, {nickname: '겸댕이2'},{nickname: '겸댕이3'}]
-});
 export const loginAction = (data) => {
-    return (dispatch, getState) => {
-        const state = getState();
+    return (dispatch) => {
         setTimeout(() => {
             dispatch(loginRequestAction());
         }, 2000);
         dispatch(loginRequestAction());
-        axios.post('/api/login')
-            .then((res) => {
-                dispatch(loginSuccessAction(res.data));
-            })
-            .catch((err) => {
-                dispatch(loginFailureAction(err));
-            });
     }
 }
 
@@ -124,6 +108,7 @@ const reducer = (state = initialState, action) => produce(state, (draft) => {
             draft.unFollowLoading = false;
             draft.unFollowError = action.error;
             break;    
+
         case LOG_IN_REQUEST:
             draft.logInLoading = true;
             draft.logInError = null;
@@ -133,7 +118,7 @@ const reducer = (state = initialState, action) => produce(state, (draft) => {
         case LOG_IN_SUCCESS:
             draft.logInLoading = false;
             draft.logInDone = true;
-            draft.me = dummyUser(action.data);
+            draft.me = action.data;
             break;
 
         case LOG_IN_FAILURE:

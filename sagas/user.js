@@ -19,7 +19,6 @@ function unfollowAPI(data){
 
 function* unfollow(action) {
     try {
-        console.log('saga unfollow');
         // const result = yield call(unfollowAPI);
         yield delay(1000);
         yield put({
@@ -40,7 +39,6 @@ function followAPI(){
 
 function* follow(action) {
     try {
-        console.log('saga follow');
         // const result = yield call(followAPI);
         yield delay(1000);
         yield put({
@@ -56,19 +54,19 @@ function* follow(action) {
 }
         
 
-function loginAPI(data){
+function logInAPI(data){
     return axios.post('/user/login', data);
 }
 
-function* login(action) {
-    try {
-        const result = yield call(loginAPI, action.data);
-        yield delay(1000);
+function* logIn(action) {
+    try { 
+        const result = yield call(logInAPI, action.data);
         yield put({
             type: LOG_IN_SUCCESS,
-            // data: result.data
+            data: result.data,
         });
     } catch(err) {
+        console.error(err);
         yield put({
             type: LOG_IN_FAILURE,
             data: err.response.data,
@@ -76,13 +74,13 @@ function* login(action) {
     }
 }
 
-function logoutAPI(){
+function logOutAPI(){
     return axios.post('/user/logout');
 }
 
-function* logout() {
+function* logOut() {
     try{
-        // const result = yield call(logoutAPI);
+        // const result = yield call(logOutAPI);
         yield delay(1000);
         yield put({
             type: LOG_OUT_SUCCESS,
@@ -123,11 +121,11 @@ function* watchFollow() {
  }
 
  function* watchLogIn() {
-    yield takeLatest(LOG_IN_REQUEST, login);
+    yield takeLatest(LOG_IN_REQUEST, logIn);
  }
 
  function*  watchLogOut(){
-     yield takeLatest(LOG_OUT_REQUEST, logout);
+     yield takeLatest(LOG_OUT_REQUEST, logOut);
  }
 
  function* watchSignUp() {
