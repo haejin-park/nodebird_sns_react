@@ -85,6 +85,7 @@ function* logOut() {
             type: LOG_OUT_SUCCESS,
         });
     } catch(err) {
+        console.error(err);
         yield put({
             type: LOG_OUT_FAILURE,
             error: err.response.data
@@ -99,9 +100,9 @@ function signUpAPI(data) {
 function* signUp(action) {
     try {
         const result = yield call(signUpAPI, action.data);
-        yield delay(1000);
         yield put({
-            type:SIGN_UP_SUCCESS
+            type:SIGN_UP_SUCCESS,
+            data: result.data
         });
     } catch(err) {
         yield put({
