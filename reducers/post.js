@@ -1,6 +1,4 @@
-import shortId from 'shortid';
 import {produce} from 'immer';
-import faker from 'faker';
 
 export const initialState = {
     mainPosts:[],
@@ -23,24 +21,6 @@ export const initialState = {
     addCommentDone: false,
     addCommentError: null,
 }
-export const generateDummyPost = (number) => Array(number).fill().map(() => ({
-    id: shortId.generate(),
-    User: {
-        id: shortId.generate(),
-        nickname: faker.name.findName()
-    },
-    content: faker.lorem.paragraph(),
-    Images: [{
-        src: 'https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_1280.jpg' //faker.image.imageUrl(640, 480, true), lorempixel.com 고장나서 임시로
-    }],
-    Comments: [{
-        User: { 
-            id:shortId.generate(),
-            nickname:faker.name.findName(),
-        },
-        content:faker.lorem.sentence(),
-    }],
-}));
 
 export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
 export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
